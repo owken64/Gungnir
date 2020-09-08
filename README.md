@@ -6,9 +6,9 @@ How to use
 1.make a script file
 s.t.
 
-def F
-def m
-def a
+var F
+var m
+var a
 equation F = ma
 
 2. launch scale with this code

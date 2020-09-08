@@ -4,7 +4,7 @@ Some Language ( that is not superior at programming)
 How to use
 
 1.make a script file
-s.t.
+e.g.
 
 var F
 var m
@@ -15,7 +15,8 @@ equation F = ma
 (On terminal)
 > scala com.yamanogusha.parser.Launcher (script file name)
 
-3. Input the substitution
+3. Input substitutions
+e.g.
 m = 2
 a = 2
 F = 4

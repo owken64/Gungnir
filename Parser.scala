@@ -1,9 +1,9 @@
-package com.yamanogusha.parser
+package com.yamanogusha.scale.parser
 
 import scala.util.parsing.combinator._
 import java.io.FileReader
 
-import com.yamanogusha.base._
+import com.yamanogusha.scale.base._
 
 class MyParser extends RegexParsers {
   val name: Parser[String] = """[a-zA-Z]""".r

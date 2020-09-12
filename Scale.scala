@@ -1,4 +1,4 @@
-package com.yamanogusha.base
+package com.yamanogusha.scale.base
 
 class Var(val name: Char) {
   VarManager.add(this)

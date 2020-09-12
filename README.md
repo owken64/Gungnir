@@ -18,7 +18,7 @@ equation F = ma
 
 4. launch scale with this code
 (On terminal)
-> scala com.yamanogusha.parser.Launcher (script file name)
+> scala com.yamanogusha.scala.parser.Launcher (script file name)
 
 5. Input substitutions in REPL
 e.g.

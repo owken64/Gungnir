@@ -1,4 +1,4 @@
-# Scale
+# Gungnir
 A Language ( that is not superior at programming)
 
 How to use

@@ -27,7 +27,7 @@ F = 4
 
 All substitutions keep equations had been defined.
 
-<Bonus for everyone who can read Japanese>
+#Bonus for everyone who can read Japanese
 ご参照ありがとうございます。言語「グングニル」は開発中の言語です。
 名前の由来は、BUMP OF CHICKENの同名の曲から。高校1年生の頃に知った好きな曲から名付けました。
 

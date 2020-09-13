@@ -15,7 +15,7 @@ var m
 var a
 equation F = ma
 
-4. launch scale with this code
+4. launch Gungnir with this script
 (On terminal)
 > scala com.yamanogusha.parser.Launcher (script file name)
 

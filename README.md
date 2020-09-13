@@ -6,7 +6,7 @@ How to use
 1.Install Scala (, Java)
 
 2.Compile files
-scalac Scale.scala Parser.scala
+scalac Scale.scala Base.scala Parser.scala
 
 3.make a script file
 e.g.
@@ -18,7 +18,8 @@ equation F = ma
 
 4. launch scale with this code
 (On terminal)
-> scala com.yamanogusha.scala.parser.Launcher (script file name)
+> scala com.yamanogusha.scala.Launcher (script file names)
+(If you give Scale no scripts, Scale launch with no matter.)
 
 5. Input substitutions in REPL
 e.g.

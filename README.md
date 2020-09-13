@@ -20,7 +20,7 @@ equation F = ma
 4. launch Gungnir with this code
 (On terminal)
 > scala com.yamanogusha.scale.Launcher (script file names)
-(If you give Scale no scripts, Scale launch with no matter.)
+(If you give Gungnir no scripts, Gungnir launch with no matter.)
 
 5. Input substitutions in REPL
 e.g.

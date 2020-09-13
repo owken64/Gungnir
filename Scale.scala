@@ -19,7 +19,7 @@ object Launcher {
 	  for( t <- es_char ) { Equation( t._1.map(VarManager.get(_)), t._2.map(VarManager.get(_)) ) }
 	}
 	
-    makeObjects("src/Scale/Preparation.scale")
+    makeObjects("Preparation.scale")
 	for( arg <- args ) { makeObjects(arg) }
 
     VarManager.list

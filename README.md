@@ -6,7 +6,7 @@ How to use
 1.Install Scala (, Java)
 
 2.Compile files
-scalac Scale.scala Parser.scala
+scalac Gungnir.scala Parser.scala
 3.make a script file
 e.g.
 

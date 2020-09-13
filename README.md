@@ -5,8 +5,9 @@ How to use
 
 1.Install Scala (, Java)
 
-2.Compile files
-scalac Scale.scala Base.scala Parser.scala
+2.Compile files, i.e. use compile.bat
+(On terminal)
+> compile
 
 3.make a script file
 e.g.

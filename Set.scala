@@ -1,20 +1,9 @@
-package com.yamanogusha.scale.base
+package com.yamanogusha.gungnir.base
 
-sealed class Set {
-  def contains( e: Element ): Boolean = {
-    if ( e.parent == this ) true
-	else false
-  }
+sealed abstract class Set extends Object("Set") {
+  def contains(obj: Object): Boolean
 }
 
-object EmptySet extends Set {
-  override def contains(e: Element): Boolean = false
+class SetWithRequires(val requires: List[Object => Boolean] ) extends Set {
+  def contains(obj: Object): Boolean = { requires.forall( P => (P(obj) == true) ) }
 }
-
-object N extends Set
-object Z extends Set
-object Q extends Set
-object R extends Set
-object C extends Set
-
-sealed class Element(val parent: Set)

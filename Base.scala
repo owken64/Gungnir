@@ -1,4 +1,6 @@
-package com.yamanogusha.scale.base
+package com.yamanogusha.gungnir.base
+
+abstract class Object(val classname: String)
 
 class Var(val name: Char) {
   VarManager.add(this)
@@ -49,6 +51,20 @@ case class Equation(lhs: List[Var], rhs: List[Var]) {
 }
 
 case class Inequality(lhs: List[Var], rhs: List[Var])
+
+object NameManager {
+  private var nameSet: scala.collection.immutable.Set[Char] = scala.collection.immutable.Set()
+  def add(c: Char): Unit = {
+    if ( !nameSet.contains(c) ) {
+	  nameSet = nameSet + c
+	}
+	else {
+	  throw new Exception(c + " has been already used.")
+	}
+  }
+  
+  def contains(c: Char): Boolean = nameSet.contains(c)
+}
 
 object VarManager {
   var varMap: scala.collection.immutable.Map[Char, Var] = scala.collection.immutable.Map()

@@ -1,19 +1,5 @@
-package com.yamanogusha.scale.base
+package com.yamanogusha.gungnir.base
 
-abstract sealed class Number
+abstract sealed class Number(classname: String) extends Object(classname)
 
-class PrimeNumber extends Number
-
-class NaturalNumber extends Number
-
-class Integer extends Number
-
-class RationalNumber extends Number
-
-class RealNumber extends Number
-
-class ComplexNumber extends Number
-
-class Quaternion extends Number
-
-object Infinity extends Number
+class Integer(val value: Int) extends Number("Integer")

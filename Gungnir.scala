@@ -36,4 +36,12 @@ object Launcher {
 	  msg = scala.io.StdIn.readLine()
 	}
   }
-} 
+ 
+  def check(): Unit = {
+    for ( e <- eqList ) { e.check() }
+  }
+
+  def list(): Unit = {
+    for ( e <- eqList ) { println(e) }
+  }
+}

@@ -1,80 +1,42 @@
-package com.yamanogusha.base
+package com.yamanogusha.scale
 
-class Var(val name: Char) {
-  VarManager.add(this)
-  var value: Option[Double] = None
-  def substitute(v: Double): Unit = {
-    val previousValue: Option[Double] = value
-	value = Some(v)
-	try {
-      EqManager.check()
+import java.io.FileReader
+
+import com.yamanogusha.scale.base._
+import com.yamanogusha.scale.parser._
+
+object Launcher {
+  def main(args: Array[String]) {
+	val parser = new MyParser()
+    def makeObjects(filename: String): Unit = {
+	  val reader = new FileReader(filename)
+  	  val result = parser.parseAll(parser.expr, reader)
+	  reader.close()
+      val data = result.get
+	  val vs_char = data._1
+	  val es_char = data._2
+	  for( c <- vs_char){ new Var(c) }
+	  for( t <- es_char ) { Equation( t._1.map(VarManager.get(_)), t._2.map(VarManager.get(_)) ) }
 	}
-	catch {
-  	  case ex:Exception => {
-	    value = previousValue
-		println(ex)
+	
+    makeObjects("Preparation.scale")
+	for( arg <- args ) { makeObjects(arg) }
+
+    VarManager.list
+    EqManager.list
+	
+	val rp: RuntimeParser = new RuntimeParser
+	var msg: String = scala.io.StdIn.readLine()
+	while ( msg != "quit" ) {
+	  val result = rp.parseAll(rp.expr, msg)
+	  if ( result.successful ) {
+	    val token: (Char, Double) = result.get
+		VarManager.get(token._1).substitute(token._2)
 	  }
+	  msg = scala.io.StdIn.readLine()
 	}
   }
-  
-  override def toString(): String = {
-    if ( value.isDefined ) {
-	  name + " = " + value.get
-	}
-	else {
-	  name + " : " + "unknown"
-	}
-  }
-}
-
-case class Equation(lhs: List[Var], rhs: List[Var]) {
-  EqManager.add(this)
-  def check(): Unit = {
-    if ( lhs.forall( v => v.value.isDefined ) && rhs.forall( v => v.value.isDefined ) ) {
-      val lhs_value: List[Double] = for( v <- lhs ) yield { v.value.get }
-	  val rhs_value: List[Double] = for( v <- rhs ) yield { v.value.get }
-	  if ( lhs_value.reduceLeft( _ * _ ) != rhs_value.reduceLeft( _ * _ ) ) {
-	    throw new Exception("Equation " + this + " is collapsed.")
-      }
-	}
-  }
-  
-  override def toString(): String = {
-    def combine(list: List[Var]): String = {
-	  if ( list == Nil ) ""
-	  else list.head.name.toString + combine(list.tail)
-	}
-	combine(lhs) + " = " + combine(rhs)
-  }
-}
-
-object VarManager {
-  var varMap: Map[Char, Var] = Map()
-  def add(v: Var): Unit = {
-    if ( !varMap.contains(v.name) ) {
-      varMap = varMap + (v.name -> v )
-	}
-	else {
-	  throw new Exception("Variable " + varMap(v.name) + " has been already defined.")
-	}
-  }
-  def get(k: Char): Var = { varMap(k) }
-  def list(): Unit = {
-    for ( v <- varMap.values ) { println(v) }
-  }
-}
-
-object EqManager {
-  var eqList: List[Equation] = List()
-  def add(e: Equation): Unit = {
-    if ( ! eqList.contains(e) ) {
-	  eqList = e :: eqList
-	}
-	else {
-	  throw new Exception("Equation" + e + " has been already defined.")
-	}
-  }
-  
+ 
   def check(): Unit = {
     for ( e <- eqList ) { e.check() }
   }
@@ -83,4 +45,3 @@ object EqManager {
     for ( e <- eqList ) { println(e) }
   }
 }
-  

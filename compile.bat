@@ -1,1 +1,1 @@
-scalac Scale.scala Base.scala Parser.scala
+scalac src/Gungnir/Scale.scala src/Gungnir/Base.scala src/Gungnir/Parser.scala

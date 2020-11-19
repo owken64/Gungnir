@@ -9,8 +9,6 @@ How to use
 (On terminal)
 > compile
 
-2.5 set the Proposition.gung at ./src/Gungnir/Proposition.gung
-
 3.arrange the Proposition.gung
 e.g.
 1 is number

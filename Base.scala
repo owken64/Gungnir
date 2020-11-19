@@ -1,17 +1,30 @@
-package com.yamanogusha.gungnir.base
+package com.isageek.yamanogusha.gungnir.base
 
-abstract class Object(val classname: String)
+case class Proposition(val sentence:String){
+  var truth: Option[Boolean] = None
+}
 
-object WordManager {
-  private var list: List[String] = List()
-  def add(word: String): Unit = {
-    if (list contains word) {
-	  throw new Exception( word + " has been already defined.")
+object PropositionManager {
+  private var list: List[Proposition] = List()
+  def add(p: Proposition): Unit = {
+    if (list contains p) {
+	  throw new Exception( p + " has been already defined.")
 	}
 	else {
-	  list = word :: list
+	  list = p :: list
 	}
   }
   
-  def get: List[String] = list
+  def get(p: Proposition):Option[Proposition] = {
+    def content[T](list: List[T], v: T): Option[T] = {
+	  if (list.isEmpty) None
+	  else {
+	    if ( list.head == v ) Some(list.head)
+		else content[T](list.tail, v)
+	  }
+	}
+	content[Proposition](list, p)
+  }
+  
+  def get: List[Proposition] = list
 }

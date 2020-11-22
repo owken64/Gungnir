@@ -1,26 +1,26 @@
-0 is number:True
-1 is number:True
-2 is number:True
-3 is number:True
-4 is number:True
-5 is number:True
-6 is number:True
-7 is number:True
-8 is number:True
-9 is number:True
-10 is number:True
-dog is number:False
-0 = 0:True
-1 = 1:True
-2 = 2:True
-3 = 3:True
-4 = 4:True
-5 = 5:True
-6 = 6:True
-7 = 7:True
-8 = 8:True
-9 = 9:True
-10 = 10:True
-0 + 1 = 1:True
-1 + 1 = 2:True
-1 + 2 + ... is integer
+0 is number:True;
+1 is number:True;
+2 is number:True;
+3 is number:True;
+4 is number:True;
+5 is number:True;
+6 is number:True;
+7 is number:True;
+8 is number:True;
+9 is number:True;
+10 is number:True;
+dog is number:False;
+0 = 0:True;
+1 = 1:True;
+2 = 2:True;
+3 = 3:True;
+4 = 4:True;
+5 = 5:True;
+6 = 6:True;
+7 = 7:True;
+8 = 8:True;
+9 = 9:True;
+10 = 10:True;
+0 + 1 = 1:True;
+1 + 1 = 2:True;
+1 + 2 + ... is integer;

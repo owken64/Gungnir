@@ -22,14 +22,14 @@ class RuntimeParser extends RegexParsers {
   }
   def t: Parser[LogicalFormula] = ("true" | "True") ^^{ _ => True() }
   def f: Parser[LogicalFormula] = ("false" | "False") ^^{ _ => False() }
-  def negation: Parser[LogicalFormula] = "not"~proposition ^^ { case "not"~f => Not(f) }
-//  def conjunction: Parser[LogicalFormula] = proposition~"and"~proposition ^^ { case f1~"and"~f2 => And(f1, f2) }
-//  def disjunction: Parser[LogicalFormula] = proposition~"or"~proposition ^^ { case f1~"or"~f2 => Or(f1, f2) }
-  def implication: Parser[LogicalFormula] = "If"~proposition~", then"~proposition ^^ { case "If"~f1~", then"~f2 => IfThen(f1, f2) } 
-//  def equivalence: Parser[LogicalFormula] = proposition~"if and only if"~proposition ^^ { case f1~"if and only if"~f2 => Iff(f1, f2) }
-  def conjunction: Parser[LogicalFormula] = "and"~proposition~proposition ^^ { case "and"~p1~p2 => And(p1, p2) }
-  def disjunction: Parser[LogicalFormula] = "or"~proposition~proposition ^^ { case "or"~p1~p2 => Or(p1, p2) }
-  def equivalence: Parser[LogicalFormula] = "iff"~proposition~proposition ^^ { case "iff"~p1~p2 => Iff(p1, p2) }
+  def negation: Parser[LogicalFormula] = "not"~formula ^^ { case "not"~f => Not(f) }
+//  def conjunction: Parser[LogicalFormula] = formula~"and"~formula ^^ { case f1~"and"~f2 => And(f1, f2) }
+//  def disjunction: Parser[LogicalFormula] = formula~"or"~formula ^^ { case f1~"or"~f2 => Or(f1, f2) }
+  def implication: Parser[LogicalFormula] = "If"~formula~", then"~formula ^^ { case "If"~f1~", then"~f2 => IfThen(f1, f2) } 
+//  def equivalence: Parser[LogicalFormula] = formula~"if and only if"~formula ^^ { case f1~"if and only if"~f2 => Iff(f1, f2) }
+  def conjunction: Parser[LogicalFormula] = "and"~formula~formula ^^ { case "and"~f1~f2 => And(f1, f2) }
+  def disjunction: Parser[LogicalFormula] = "or"~formula~formula ^^ { case "or"~f1~f2 => Or(f1, f2) }
+  def equivalence: Parser[LogicalFormula] = "iff"~formula~formula ^^ { case "iff"~f1~f2 => Iff(f1, f2) }
 									       
   def formula:Parser[LogicalFormula] =  proposition | t | f | negation | conjunction | disjunction | implication | equivalence
    

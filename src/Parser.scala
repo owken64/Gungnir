@@ -35,7 +35,3 @@ class RuntimeParser extends RegexParsers {
    
   def expr: Parser[LogicalFormula] = formula
 }
-
-class BonusParser extends RegexParsers {
-  val expr: Parser[Any] = "throw"~"Gungnir"
-}

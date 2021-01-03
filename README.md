@@ -5,9 +5,11 @@ How to use
 
 1.Install Scala (and Java)
 
-2.Compile files, i.e. use compile.bat
+2.Compile files, i.e. use compile.bat for Windows
 (On terminal)
 > compile
+(Mac, Linux, Unix)
+> scala src/*.scala
 
 3.arrange the Proposition.rnr
 e.g.
@@ -15,8 +17,10 @@ e.g.
 2 is number
 1 + 1 = 2
 
-4. launch Ronri
+4. launch Ronri, i.e. use execute.bat for Windows
 (On terminal)
+> execute
+(Mac, Linux, Unix)
 > scala com.isageek.yamanogusha.ronri.Launcher
 
 5. Type proposition in REPL

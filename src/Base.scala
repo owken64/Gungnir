@@ -1,4 +1,4 @@
-package com.isageek.yamanogusha.gungnir.base
+package com.isageek.yamanogusha.ronri.base
 
 abstract class LogicalFormula {
   def truth: Option[Boolean]

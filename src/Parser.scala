@@ -1,8 +1,8 @@
-package com.isageek.yamanogusha.gungnir.parser
+package com.isageek.yamanogusha.ronri.parser
 
 import scala.util.parsing.combinator._
 
-import com.isageek.yamanogusha.gungnir.base._
+import com.isageek.yamanogusha.ronri.base._
 
 class PropositionParser extends RegexParsers {
   val proposition: Parser[Proposition] = """[^:;]+""".r ^^{case sentence => Proposition(sentence) }

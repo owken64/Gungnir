@@ -1,9 +1,9 @@
-package com.isageek.yamanogusha.gungnir
+package com.isageek.yamanogusha.ronri
 
 import java.io.FileReader
 
-import com.isageek.yamanogusha.gungnir.base._
-import com.isageek.yamanogusha.gungnir.parser._
+import com.isageek.yamanogusha.ronri.base._
+import com.isageek.yamanogusha.ronri.parser._
 
 object Launcher {
   def main(args: Array[String]) {
@@ -17,7 +17,7 @@ object Launcher {
 	}
 		
 //	for( arg <- args ) { makeObjects(arg) }
-    makeObjects("src/Gungnir/Proposition.gung")
+    makeObjects("conf/Proposition.rnr")
 
 	println(PropositionManager.get )
 

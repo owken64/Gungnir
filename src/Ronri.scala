@@ -1,9 +1,9 @@
-package com.isageek.yamanogusha.ronri
+package com.is_a_geek.yamanogusha.ronri
 
 import java.io.FileReader
 
-import com.isageek.yamanogusha.ronri.base._
-import com.isageek.yamanogusha.ronri.parser._
+import com.is_a_geek.yamanogusha.ronri.base._
+import com.is_a_geek.yamanogusha.ronri.parser._
 
 object Launcher {
   def main(args: Array[String]) {
